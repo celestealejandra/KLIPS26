@@ -1,14 +1,17 @@
-///log using "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\cleaning_waves_1_26.smcl", replace
-
-
-
+********************************************************************
+* Código de Mineria de datos para limpieza de encuesta longitudinal*
+********************************************************************
+////Fuente: Korean Labor and Income Panel Survey, Centro de Investigaciones
+** Laborales de Korea//
+// Creación:  ‎7‎ de ‎marzo‎ de ‎2026 01:19:10 p. m
+// Última modificación: 14‎ de ‎marzo‎ de ‎2026 02:12:02 p. m.
+// Universo de Estudio: Hombres y Mujeres nacidos entre 1960 y 1980 
+// Técnica Estadística: Análisis de historia de eventos en tiempo discreto
+// Evento: Transición al Primer Matrimonio
 ***************************************************
 **#* OLA 1 *****************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips01p.dta", clear 
-
-count
+use "path\data\klips01p.dta", clear 
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -44,7 +47,6 @@ recode cohorte5_01 ///
  gen birth_month_01 = p010105
 replace birth_month_01 = .i if birth_month_01 == -1
 
- 
  
 ***************************************************
 *** ESTADO CONYUGAL *******************************
@@ -153,16 +155,9 @@ label values parents_activity_01 parents_activity_01
 
 gen parents_ocupation_01 = p019064
 
-
-
-
-
-
-
 ///** VOY A USAR LA CLASIFICACIÓN KSCO 5 PORQUE ES LA QUE ESTÁ DISPONIBLE EN TODAS LAS OLAS
 // SI AL FINAL LA OCUPO HAGO LA CORRESPONDENCIA DE LA KSCO5 A LA 6 Y DE AHÍ A LA 7 
 /// ** USO PARENTS OCUPATION Y DESPUÉS DEL MERGE DISTINGO SI ES DEL PADRE O MADRE 
-
 
 ***************************************************
 *** KEEP ******************************************
@@ -202,13 +197,13 @@ tab primer_matrimonio_01 unido_01
 replace fathers_edu_01 =.i if fathers_edu_01 == -1 
 count if inrange(b_cohort_01, 1960, 1989)
 count
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave1_clean.dta", replace
+save "path\wave1_clean.dta", replace
 
 ***************************************************
 **#* OLA 2 *****************************************
 ***************************************************
 
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips02p.dta", clear 
+use "path\data\klips02p.dta", clear 
 count
 
 
@@ -400,16 +395,12 @@ tab fathers_edu if hwaveent == 2, mi
 count if inrange(b_cohort_02, 1960, 1989)
 count
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave2_clean.dta", replace
+save "path\wave2_clean.dta", replace
 
 ***************************************************
 **#* OLA 3  ****************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips03p.dta", clear
-
-count
-
+use "path\data\klips03p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -565,12 +556,6 @@ label values parents_activity_03 parents_activity_03
 gen parents_ocupation_03 = p039064
 
 
-
-///** VOY A USAR LA CLASIFICACIÓN KSCO 5 PORQUE ES LA QUE ESTÁ DISPONIBLE EN TODAS LAS OLAS
-// SI AL FINAL LA OCUPO HAGO LA CORRESPONDENCIA DE LA KSCO5 A LA 6 Y DE AHÍ A LA 7 
-/// ** USO PARENTS OCUPATION Y DESPUÉS DEL MERGE DISTINGO SI ES DEL PADRE O MADRE 
-
-
 ***************************************************
 *** KEEP ******************************************
 ***************************************************
@@ -612,16 +597,12 @@ tab primer_matrimonio_03 unido_03 if hwaveent == 3
 replace fathers_edu_03 = .i if fathers_edu_03 == -1
 tab fathers_edu if hwaveent == 3, mi
 count if inrange(b_cohort, 1960, 1989)
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave3_clean.dta", replace
 
+save "path\wave3_clean.dta", replace
 ***************************************************
 **#* OLA 4 *****************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips04p.dta", clear
-
-count 
-
+use "path\data\klips04p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -789,7 +770,6 @@ label define parents_activity_04 ///
  6 "Sin trabajo / ama de casa"   
 label values parents_activity_04 parents_activity_04
 
-
 gen parents_ocupation_04 = p049064
 
 ***************************************************
@@ -835,15 +815,12 @@ replace fathers_edu_04 = .i if fathers_edu_04 == -1
 tab fathers_edu if hwaveent == 4, mi
 count if inrange(b_cohort, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave4_clean.dta", replace
+save "path\general\wave4_clean.dta", replace
 
 ***************************************************
 **#* OLA 5 *****************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips05p.dta", clear
-count
-
+use "path\data\klips05p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -1069,16 +1046,13 @@ replace fathers_edu_05 = .i if fathers_edu_05 == -1
 tab fathers_edu if hwaveent == 5, mi
 count if inrange(b_cohort_05, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave5_clean.dta", replace
+save "path\general\wave5_clean.dta", replace
 
 
 ***************************************************
 **#* OLA 6   ***************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips06p.dta", clear
-
-
+use "path\data\klips06p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -1316,13 +1290,11 @@ replace fathers_edu_06 = .i if fathers_edu_06 == -1
 tab fathers_edu_06  if hwaveent == 6, mi
 tab siblings_06, mi
 count if inrange(b_cohort_06, 1960, 1989)
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave6_clean.dta", replace
-
+save "path\general\wave6_clean.dta", replace
 ***************************************************
 **# OLA 7 *****************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips07p.dta", clear
+use "path\data\klips07p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -1585,14 +1557,11 @@ tab fathers_edu_07  if hwaveent == 7, mi
 tab siblings_07 if hwaveent == 7, mi
 count if inrange(b_cohort_07, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave7_clean.dta", replace
-
+save "path\general\wave7_clean.dta", replace
 ***************************************************
 **# OLA 8 *****************************************
 ***************************************************
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips08p.dta", clear
-
-
+use "path\data\klips08p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -1864,13 +1833,12 @@ tab nse14_08 if hwaveent == 8, mi
 count if inrange(b_cohort_08, 1960, 1989)
 
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave8_clean.dta", replace
-
+save "path\general\wave8_clean.dta", replace
 ***************************************************
 **#* OLA 9 **************************************
 ***************************************************
 
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips09p.dta", clear
+use "path\data\klips09p.dta", clear
 
 ***************************************************
 *** COHORTES **************************************
@@ -2132,13 +2100,12 @@ tab nse14_09 if hwaveent == 9, mi
 count if inrange(b_cohort_09, 1960, 1989)
 
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave9_clean.dta", replace
-
+save "path\general\wave9_clean.dta", replace
 ***************************************************
 **#* OLA 10 **************************************
 ***************************************************
 
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips10p.dta", clear
+use "path\data\klips10p.dta", clear
 
 ***************************************************
 *** COHORTES **************************************
@@ -2399,13 +2366,12 @@ tab nse14_10 if hwaveent ==10, mi
 count if inrange(b_cohort_10, 1960, 1989)
 
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave10_clean.dta", replace
-
+save "path\general\wave10_clean.dta", replace
 ***************************************************
 **#* OLA 11 **************************************
 ***************************************************
 
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips11p.dta", clear
+use "path\data\klips11p.dta", clear
 
 ***************************************************
 *** COHORTES **************************************
@@ -2663,15 +2629,13 @@ tab siblings_11 if hwaveent ==11, mi
 tab nse14_11 if hwaveent ==11, mi
 count if inrange(b_cohort_11, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave11_clean.dta", replace
+save "path\general\wave11_clean.dta", replace
 
 
 ***************************************************
-**#* OLA 12 **************************************
+**#* OLA 12  **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips12p.dta", clear
-
+use "path\data\klips12p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -2927,15 +2891,13 @@ tab fathers_edu_12 if hwaveent == 12, mi
 tab siblings_12 if hwaveent == 12, mi
 tab nse14_12 if hwaveent == 12, mi
 count if inrange(b_cohort_12, 1960, 1989)
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave12_clean.dta", replace
+save "path\general\wave11_clean.dta", replace
 
 
 ***************************************************
 **#* OLA 13 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips13p.dta", clear
-
+use "path\data\klips13p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -3195,15 +3157,13 @@ tab nse14_13 if hwaveent == 13, mi
 count if inrange(b_cohort_13, 1960, 1989)
 
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave13_clean.dta", replace
+save "path\general\wave13_clean.dta", replace
 
 
 ***************************************************
 **#* OLA 14 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips14p.dta", clear
-
+use "path\data\klips14p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -3459,14 +3419,12 @@ tab siblings_14 if hwaveent == 14, mi
 tab nse14_14 if hwaveent == 14, mi
 count if inrange(b_cohort_14, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave14_clean.dta", replace
+save "path\general\wave14_clean.dta", replace
 
 ***************************************************
 **#* OLA 15 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips15p.dta", clear
-
+use "path\data\klips15p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -3725,14 +3683,12 @@ tab siblings_15 if hwaveent == 15, mi
 tab nse14_15 if hwaveent == 15, mi
 count if inrange(b_cohort_15, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave15_clean.dta", replace
+save "path\general\wave15_clean.dta", replace
 
 ***************************************************
 **#* OLA 16 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips16p.dta", clear
-
+use "path\data\klips16p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -3990,14 +3946,12 @@ tab siblings_16 if hwaveent == 16, mi
 tab nse14_16 if hwaveent == 16, mi
 count if inrange(b_cohort_16, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave16_clean.dta", replace
+save "path\general\wave15_clean.dta", replace
 
 ***************************************************
 **#* OLA 17 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips17p.dta", clear
-
+use "path\data\klips17p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -4258,15 +4212,12 @@ tab nse14_17 if hwaveent == 17, mi
 count if inrange(b_cohort_17, 1960, 1989)
 
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave17_clean.dta", replace
-
+save "path\general\wave17_clean.dta", replace
 
 ***************************************************
 **#* OLA 18 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips18p.dta", clear
-
+use "path\data\klips18p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -4523,15 +4474,12 @@ tab siblings_18 if hwaveent == 18, mi
 tab nse14_18 if hwaveent == 18, mi
 count if inrange(b_cohort_18, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave18_clean.dta", replace
-
+save "path\general\wave18_clean.dta", replace
 
 ***************************************************
 **#* OLA 19 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips19p.dta", clear
-
+use "path\data\klips19p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -4784,13 +4732,12 @@ tab siblings_19 if hwaveent == 19, mi
 tab nse14_19 if hwaveent == 19, mi
 count if inrange(b_cohort_19, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave19_clean.dta", replace
+save "path\general\wave19_clean.dta", replace
 
 ***************************************************
 **#* OLA 20 **************************************
 ***************************************************
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips20p.dta", clear
-
+use "path\data\klips20p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -5045,8 +4992,7 @@ tab siblings_20 if hwaveent == 20, mi
 tab nse14_20 if hwaveent == 20, mi
 count if inrange(b_cohort_20, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave20_clean.dta", replace
-
+save "path\general\wave20_clean.dta", replace
 
 ***************************************************
 **#* OLA 21 **************************************
@@ -5304,14 +5250,12 @@ tab siblings_21 if hwaveent == 21, mi
 tab nse14_21 if hwaveent == 21, mi
 count if inrange(b_cohort_21, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave21_clean.dta", replace
+save "path\general\wave21_clean.dta", replace
 
 ***************************************************
 **#* OLA 22 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips22p.dta", clear
-
+use "path\data\klips22p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -5563,15 +5507,12 @@ tab siblings_22 if hwaveent == 22, mi
 tab nse14_22 if hwaveent == 22, mi
 count if inrange(b_cohort_22, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave22_clean.dta", replace
-
+save "path\general\wave22_clean.dta", replace
 
 ***************************************************
 **#* OLA 23 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips23p.dta", clear
-
+use "path\data\klips23p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -5822,14 +5763,12 @@ tab siblings_23 if hwaveent == 23, mi
 tab nse14_23 if hwaveent == 23, mi
 count if inrange(b_cohort_23, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave23_clean.dta", replace
+save "path\general\wave23_clean.dta", replace
 
 ***************************************************
 **#* OLA 24 **************************************
 ***************************************************
-
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips24p.dta", clear
-
+use "path\data\klips24p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -6081,14 +6020,13 @@ tab nse14_24 if hwaveent == 24, mi
 count if inrange(b_cohort_24, 1960, 1989)
 
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave24_clean.dta", replace
+save "path\general\wave23_clean.dta", replace
 
 ***************************************************
 **#* OLA 25 **************************************
 ***************************************************
 
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips25p.dta", clear
-
+use "path\data\klips25p.dta", clear
 ***************************************************
 *** COHORTES **************************************
 ***************************************************
@@ -6339,13 +6277,13 @@ tab siblings_25 if hwaveent == 25, mi
 tab nse14_25 if hwaveent == 25, mi
 count if inrange(b_cohort_25, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave25_clean.dta", replace
+save "path\general\wave25_clean.dta", replace
 
 ***************************************************
 **#* OLA 26 **************************************
 ***************************************************
 
-use "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\Rstudio\data\klips26p.dta", clear
+use "path\data\klips26p.dta", clear
 
 ***************************************************
 *** COHORTES **************************************
@@ -6596,7 +6534,6 @@ tab siblings_26 if hwaveent == 26, mi
 tab nse14_26 if hwaveent == 26, mi
 count if inrange(b_cohort_26, 1960, 1989)
 
-save "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\wave26_clean.dta", replace
-
+save "path\general\wave26_clean.dta", replace
 //log close 
 
