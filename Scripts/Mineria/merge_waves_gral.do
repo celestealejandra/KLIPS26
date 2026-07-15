@@ -1,5 +1,13 @@
-//log using "C:\Users\cdiaz\OneDrive - El Colegio de México A.C\TESIS\METODOLOGIA\DOCUMENTACION\hazards\general\merge_waves_1_26.smcl", replace
-
+***************************************************************************
+* Código de Mineria de datos para merge de rondas de encuesta lognitudinal*
+***************************************************************************
+////Fuente: Korean Labor and Income Panel Survey, Centro de Investigaciones
+** Laborales de Korea//
+// Creación:  ‎7‎ de ‎marzo‎ de ‎2026 01:19:10 p. m
+// Última modificación: 14‎ de ‎marzo‎ de ‎2026 02:12:02 p. m.
+// Universo de Estudio: Hombres y Mujeres nacidos entre 1960 y 1980 
+// Técnica Estadística: Análisis de historia de eventos en tiempo discreto
+// Evento: Transición al Primer Matrimonio
 ************************************
 ***********    MERGE   *************
 ************************************
