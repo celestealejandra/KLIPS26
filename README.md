@@ -22,3 +22,8 @@ La Korean Labor and Income Panel Survey (KLIPS) es una encuesta de tipo longitud
 Se obtiene la información de los miembros del hogar de quince años en adelante, obteniendo de los mismos datos de tipo transversal y de tipo retrospectivo. Además de haber sido intencionada como una encuesta de ingreso y empleo, las metas de recopilación de datos establecidas al momento de su diseño apuntaron a generar un instrumento analítico similar a la National Longitudinal Survey of Youth 1979 (NLSY79) (Korea Labor Institute, 2023).
 
 La KLIPS es utilizada comúnmente para analizar trayectorias laborales a lo largo del tiempo, aunque su uso se ha adaptado a otros temas demográficos, especialmente los  que definen transiciones a la adultez. 
+
+
+
+## Fuente
+Korea Labor Institute. (s. f.). About KLIPS. Korean Labor & Income Panel Study (KLIPS). Recuperado el 3 de junio de 2026, de KLIPS About Page
