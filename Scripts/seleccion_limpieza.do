@@ -1,7 +1,13 @@
-******************************************************
-*** 04 ETIQUETADO DE BASE MAESTRA *****************
-******************************************************
-
+***********************************************************************************************
+* Código de Mineria de datos selección, etiquetado y recode de variables encuesta lognitudinal*
+***********************************************************************************************
+////Fuente: Korean Labor and Income Panel Survey, Centro de Investigaciones
+** Laborales de Korea//
+// Creación:  ‎7‎ de ‎marzo‎ de ‎2026 01:19:10 p. m
+// Última modificación: 14‎ de ‎marzo‎ de ‎2026 02:12:02 p. m.
+// Universo de Estudio: Hombres y Mujeres nacidos entre 1960 y 1980 
+// Técnica Estadística: Análisis de historia de eventos en tiempo discreto
+// Evento: Transición al Primer Matrimonio
 use "path\general\master1_26.dta", clear
 // tamaño de muestra original 
 //37,039
